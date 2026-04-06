@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const e = require\\('electron'\\); console.log\\(typeof e, typeof e.app, Object.keys\\(e\\).slice\\(0,10\\)\\)\")"
+    ]
+  }
+}

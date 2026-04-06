@@ -31,6 +31,8 @@
 - 이 프로젝트에서 사용할 AI 도구(Claude Code, Cursor, Codex 등)와 모델은 무엇이며, 선택한 이유는 무엇인가요?
 
 아이디어, 코딩: Claude Code → 아이디어 구체화 시각화, 구체화 능력이 뛰어남, 코드 생성 정확도가 높고, 자율적인 파일 수정, 실행 능력이 있음.
+ASR: whisper
+LLM: ChatGPT 4o
 
 ## 5. 각 AI도구별 활용 전략
 
