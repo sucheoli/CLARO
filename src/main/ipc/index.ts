@@ -46,5 +46,24 @@ export function registerIPCHandlers(
     return { success: true };
   });
 
+  // 현재 오버레이 위치 반환
+  ipcMain.handle(IPC_CHANNELS.WINDOW_GET_POSITION, () => {
+    const [x, y] = overlayWindow.getPosition();
+    return { x, y };
+  });
+
+  // 드래그로 오버레이 위치 이동 (절대 좌표)
+  ipcMain.handle(IPC_CHANNELS.WINDOW_MOVE, (_event, x: number, y: number) => {
+    overlayWindow.setPosition(Math.round(x), Math.round(y));
+    return { success: true };
+  });
+
+  // 드래그로 오버레이 위치 이동 (상대 이동)
+  ipcMain.handle(IPC_CHANNELS.WINDOW_MOVE_BY, (_event, dx: number, dy: number) => {
+    const [x, y] = overlayWindow.getPosition();
+    overlayWindow.setPosition(Math.round(x + dx), Math.round(y + dy));
+    return { success: true };
+  });
+
   console.log("[IPC] All handlers registered");
 }

@@ -75,7 +75,7 @@ export class OpenAIClient {
    */
   async transcribe(audioBuffer: Buffer, language = "ko"): Promise<string> {
     // Whisper API requires a file-like object with a name
-    const file = new File([new Uint8Array(audioBuffer)], "audio.wav", { type: "audio/wav" });
+    const file = new File([new Uint8Array(audioBuffer)], "audio.webm", { type: "audio/webm" });
 
     const response = await this.client.audio.transcriptions.create({
       model: this.whisperModel,

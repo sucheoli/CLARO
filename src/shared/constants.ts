@@ -26,12 +26,18 @@ export const IPC_CHANNELS = {
   SESSION_DELETE: "session:delete",
   SESSION_CURRENT: "session:current",
 
+  // Transcription
+  CAPTURE_TRANSCRIBE: "capture:transcribe",
+
   // Window
   WINDOW_TOGGLE_OVERLAY: "window:toggle-overlay",
   WINDOW_OPEN_DASHBOARD: "window:open-dashboard",
   WINDOW_MINIMIZE: "window:minimize",
   WINDOW_CLOSE: "window:close",
   WINDOW_RESIZE: "window:resize",
+  WINDOW_MOVE: "window:move",
+  WINDOW_MOVE_BY: "window:move-by",
+  WINDOW_GET_POSITION: "window:get-position",
 } as const;
 
 // Keyboard Shortcuts
@@ -59,9 +65,10 @@ export const DEFAULT_CAPTURE_CONFIG = {
 
 // Window Dimensions
 export const WINDOW_SIZES = {
-  OVERLAY_ICON: { width: 64, height: 64 },
-  OVERLAY_GUIDE: { width: 360, height: 480 },
-  DASHBOARD: { width: 1100, height: 750 },
+  OVERLAY_ICON:      { width: 72,  height: 72  },
+  OVERLAY_RECORDING: { width: 72,  height: 112 },
+  OVERLAY_GUIDE:     { width: 360, height: 480 },
+  DASHBOARD:         { width: 1100, height: 750 },
 } as const;
 
 // Pipeline Stages

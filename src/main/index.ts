@@ -5,6 +5,7 @@ config({ path: path.resolve(process.cwd(), ".env") });
 import { createOverlayWindow, createDashboardWindow } from "./window";
 import { setupTray } from "./tray";
 import { registerIPCHandlers } from "./ipc";
+import { startAutoCapture } from "./ipc/ai";
 import { SHORTCUTS } from "../shared/constants";
 
 let overlayWindow: BrowserWindow | null = null;
@@ -20,6 +21,9 @@ app.whenReady().then(async () => {
 
   // Register IPC handlers
   registerIPCHandlers(overlayWindow, dashboardWindow);
+
+  // 백그라운드 오디오 캡처 자동 시작
+  startAutoCapture();
 
   // Register global shortcut: Ctrl+Shift+H to toggle overlay
   globalShortcut.register(SHORTCUTS.TOGGLE_OVERLAY, () => {
